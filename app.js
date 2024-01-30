@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const compression = require('compression');
 
 const AppError = require('./utils/AppError'); //error class
 const GlobalErrorHandler = require('./controller/Errorcontroller'); //global error handler
@@ -69,6 +70,8 @@ app.use(
     ],
   })
 );
+
+app.use(compression());
 
 // app.get('/', (req, res) => {
 //   res.status(200).send('hello from the server');

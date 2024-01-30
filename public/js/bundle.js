@@ -8285,7 +8285,7 @@ var login = exports.login = /*#__PURE__*/function () {
           _context.next = 4;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
               email: email,
               password: password
@@ -8293,24 +8293,24 @@ var login = exports.login = /*#__PURE__*/function () {
           });
         case 4:
           response = _context.sent;
-          console.log(response);
+          // console.log(response);
           if (response.data.status === 'success') {
             (0, _alert.showAlert)('success', 'logged in successfully');
             window.setTimeout(function () {
               location.assign('/');
             }, 500);
           }
-          _context.next = 12;
+          _context.next = 11;
           break;
-        case 9:
-          _context.prev = 9;
+        case 8:
+          _context.prev = 8;
           _context.t0 = _context["catch"](1);
           (0, _alert.showAlert)('error', _context.t0.response.data.message);
-        case 12:
+        case 11:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[1, 9]]);
+    }, _callee, null, [[1, 8]]);
   }));
   return function login(_x, _x2) {
     return _ref.apply(this, arguments);
@@ -8323,29 +8323,28 @@ var logout = exports.logout = /*#__PURE__*/function () {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
-          console.log('hiii from logout');
-          _context2.next = 4;
+          _context2.next = 3;
           return (0, _axios.default)({
             method: 'GET',
-            url: 'http://127.0.0.1:3000/api/v1/users/logout'
+            url: '/api/v1/users/logout'
           });
-        case 4:
+        case 3:
           res = _context2.sent;
-          console.log(res);
-          console.log(res.data.status);
+          // console.log(res);
+          // console.log(res.data.status);
           //reload the page
           if (res.data.status === 'success') location.reload(true);
-          _context2.next = 13;
+          _context2.next = 10;
           break;
-        case 10:
-          _context2.prev = 10;
+        case 7:
+          _context2.prev = 7;
           _context2.t0 = _context2["catch"](0);
           (0, _alert.showAlert)('error', 'error logging try again');
-        case 13:
+        case 10:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 10]]);
+    }, _callee2, null, [[0, 7]]);
   }));
   return function logout() {
     return _ref2.apply(this, arguments);
@@ -8375,34 +8374,34 @@ var updateSettings = exports.updateSettings = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          console.log('inside the updatesettings');
+          // console.log('inside the updatesettings');
           url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updatePassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
-          _context.next = 5;
+          _context.next = 4;
           return (0, _axios.default)({
             method: 'PATCH',
             url: url,
             data: data
           });
-        case 5:
+        case 4:
           response = _context.sent;
-          console.log(response);
+          // console.log(response);
           if (response.data.status === 'success') {
             (0, _alert.showAlert)('success', "".concat(type.toUpperCase(), " updated successfully"));
             window.setTimeout(function () {
               location.reload();
             }, 500);
           }
-          _context.next = 13;
+          _context.next = 11;
           break;
-        case 10:
-          _context.prev = 10;
+        case 8:
+          _context.prev = 8;
           _context.t0 = _context["catch"](0);
           (0, _alert.showAlert)('error', _context.t0.response.data.message);
-        case 13:
+        case 11:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 10]]);
+    }, _callee, null, [[0, 8]]);
   }));
   return function updateSettings(_x, _x2) {
     return _ref.apply(this, arguments);
@@ -8415,8 +8414,7 @@ var updateData = exports.updateData = /*#__PURE__*/function () {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
-          console.log('inside the update data');
-          _context2.next = 4;
+          _context2.next = 3;
           return (0, _axios.default)({
             method: 'PATCH',
             url: 'http://127.0.0.1:3000/api/v1/users/updateMe ',
@@ -8425,26 +8423,26 @@ var updateData = exports.updateData = /*#__PURE__*/function () {
               email: email
             }
           });
-        case 4:
+        case 3:
           response = _context2.sent;
-          console.log(response);
+          // console.log(response);
           if (response.data.status === 'success') {
             (0, _alert.showAlert)('success', 'successfully updated user data');
             // window.setTimeout(() => {
             //   location.assign('/me');
             // }, 500);
           }
-          _context2.next = 12;
+          _context2.next = 10;
           break;
-        case 9:
-          _context2.prev = 9;
+        case 7:
+          _context2.prev = 7;
           _context2.t0 = _context2["catch"](0);
           (0, _alert.showAlert)('error', _context2.t0.response.data.message);
-        case 12:
+        case 10:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 9]]);
+    }, _callee2, null, [[0, 7]]);
   }));
   return function updateData(_x3, _x4) {
     return _ref2.apply(this, arguments);
@@ -8457,37 +8455,36 @@ var updatePassword = exports.updatePassword = /*#__PURE__*/function () {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
           _context3.prev = 0;
-          console.log('inside the update password');
-          _context3.next = 4;
+          _context3.next = 3;
           return (0, _axios.default)({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/users/updatePassword ',
+            url: '/api/v1/users/updatePassword ',
             data: {
               passwordCurrent: passwordCurrent,
               password: password,
               passwordConfirm: passwordConfirm
             }
           });
-        case 4:
+        case 3:
           response = _context3.sent;
-          console.log(response);
+          // console.log(response);
           if (response.data.status === 'success') {
             (0, _alert.showAlert)('success', 'successfully updated user password');
             // window.setTimeout(() => {
             //   location.assign('/me');
             // }, 500);
           }
-          _context3.next = 12;
+          _context3.next = 10;
           break;
-        case 9:
-          _context3.prev = 9;
+        case 7:
+          _context3.prev = 7;
           _context3.t0 = _context3["catch"](0);
           (0, _alert.showAlert)('error', _context3.t0.response.data.message);
-        case 12:
+        case 10:
         case "end":
           return _context3.stop();
       }
-    }, _callee3, null, [[0, 9]]);
+    }, _callee3, null, [[0, 7]]);
   }));
   return function updatePassword(_x5, _x6, _x7) {
     return _ref3.apply(this, arguments);
@@ -8513,12 +8510,11 @@ var NewUser = exports.NewUser = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          console.log(name, email, password);
-          _context.prev = 1;
-          _context.next = 4;
+          _context.prev = 0;
+          _context.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/signup',
+            url: '/api/v1/users/signup',
             data: {
               name: name,
               email: email,
@@ -8526,26 +8522,26 @@ var NewUser = exports.NewUser = /*#__PURE__*/function () {
               passwordConfirm: passwordConfirm
             }
           });
-        case 4:
+        case 3:
           res = _context.sent;
-          console.log(res);
+          // console.log(res);
           if (res.data.status === 'success') {
             (0, _alert.showAlert)('success', 'Account successfully created');
             window.setTimeout(function () {
               location.assign('/');
             }, 500);
           }
-          _context.next = 12;
+          _context.next = 10;
           break;
-        case 9:
-          _context.prev = 9;
-          _context.t0 = _context["catch"](1);
+        case 7:
+          _context.prev = 7;
+          _context.t0 = _context["catch"](0);
           (0, _alert.showAlert)('error', _context.t0.res.data.message);
-        case 12:
+        case 10:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[1, 9]]);
+    }, _callee, null, [[0, 7]]);
   }));
   return function NewUser(_x, _x2, _x3, _x4) {
     return _ref.apply(this, arguments);
@@ -8741,7 +8737,8 @@ if (updateForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+    // console.log(form);
+
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -8777,7 +8774,7 @@ if (updatePassForm) {
 }
 if (SignupForm) {
   SignupForm.addEventListener('submit', function (el) {
-    console.log('hello from the signupForm');
+    // console.log('hello from the signupForm');
     el.preventDefault();
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;

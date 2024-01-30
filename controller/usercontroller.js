@@ -41,8 +41,8 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 exports.updateMe = CatchAsync(async (req, res, next) => {
-  console.log(req.file);
-  console.log(req.body);
+  // console.log(req.file);
+  // console.log(req.body);
   //1)create an error if user post password data
   if (req.body.password || req.body.passwordConfirm) {
     return next(
@@ -69,13 +69,13 @@ exports.updateMe = CatchAsync(async (req, res, next) => {
 });
 
 exports.deleteMe = CatchAsync(async (req, res, next) => {
-  console.log(req.user, 'user');
+  // console.log(req.user, 'user');
 
   const deletedUser = await User.findByIdAndUpdate(req.user.id, {
     active: false,
   });
 
-  console.log(deletedUser);
+  // console.log(deletedUser);
 
   res.status(204).json({
     status: 'sucess',

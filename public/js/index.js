@@ -35,7 +35,7 @@ if (updateForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+    // console.log(form);
 
     updateSettings(form, 'data');
   });
@@ -59,7 +59,7 @@ if (updatePassForm) {
 
 if (SignupForm) {
   SignupForm.addEventListener('submit', (el) => {
-    console.log('hello from the signupForm');
+    // console.log('hello from the signupForm');
     el.preventDefault();
 
     const name = document.getElementById('name').value;
