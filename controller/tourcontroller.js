@@ -225,8 +225,6 @@ exports.updateTour = Factory.updateOne(Tour);
 exports.DeleteTour = Factory.deleteOne(Tour);
 
 exports.getTourStats = CatchAsync(async (req, res, next) => {
-  console.log('hiii');
-
   const stats = await Tour.aggregate([
     {
       $match: { price: { $gte: 400 } },
@@ -305,12 +303,9 @@ exports.GetMonthlyPlan = CatchAsync(async (req, res, next) => {
 // '/tours-within/:200/center/:40,-45/unit/:mi'
 
 exports.getToursWithin = CatchAsync(async (req, res, next) => {
-  console.log('hiiii');
   const { distance, latlng, unit } = req.params;
   const [lat, lng] = latlng.split(',');
 
-  console.log(lat);
-  console.log(lng);
   const radius = unit === 'mi' ? distance / 3963.2 : distance / 6378.1;
 
   if (!lat || !lng) {

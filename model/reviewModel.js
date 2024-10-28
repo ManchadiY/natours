@@ -120,7 +120,7 @@ reviewschema.post('save', function () {
 
 reviewschema.pre(/^findOneAnd/, async function (next) {
   this.r = await this.findOne();
-  console.log(r);
+  // console.log(r);
 });
 
 //pass from pre middleware to post middleware
