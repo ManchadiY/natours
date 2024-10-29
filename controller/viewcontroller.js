@@ -58,7 +58,6 @@ exports.getAccount = (req, res) => {
 };
 
 exports.getSignupForm = (req, res) => {
-  console.log('hiii');
   res
     .status(200)
     .set(

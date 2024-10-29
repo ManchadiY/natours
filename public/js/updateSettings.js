@@ -7,17 +7,17 @@ import { showAlert } from './alert';
 //type is either 'password' or 'data'
 export const updateSettings = async (data, type) => {
   try {
-    console.log('inside the updatesettings');
+    // console.log('inside the updatesettings');
     const url =
       type === 'password'
-        ? 'http://127.0.0.1:3000/api/v1/users/updatePassword'
-        : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+        ? '/api/v1/users/updatePassword'
+        : '/api/v1/users/updateMe';
     const response = await axios({
       method: 'PATCH',
       url,
       data,
     });
-    console.log(response);
+    // console.log(response);
     if (response.data.status === 'success') {
       showAlert('success', `${type.toUpperCase()} updated successfully`);
       window.setTimeout(() => {
@@ -31,7 +31,7 @@ export const updateSettings = async (data, type) => {
 
 export const updateData = async (name, email) => {
   try {
-    console.log('inside the update data');
+    // console.log('inside the update data');
     const response = await axios({
       method: 'PATCH',
       url: 'http://127.0.0.1:3000/api/v1/users/updateMe ',
@@ -40,7 +40,7 @@ export const updateData = async (name, email) => {
         email,
       },
     });
-    console.log(response);
+    // console.log(response);
     if (response.data.status === 'success') {
       showAlert('success', 'successfully updated user data');
       // window.setTimeout(() => {
@@ -58,17 +58,17 @@ export const updatePassword = async (
   passwordConfirm
 ) => {
   try {
-    console.log('inside the update password');
+    // console.log('inside the update password');
     const response = await axios({
       method: 'PATCH',
-      url: 'http://127.0.0.1:3000/api/v1/users/updatePassword ',
+      url: '/api/v1/users/updatePassword ',
       data: {
         passwordCurrent,
         password,
         passwordConfirm,
       },
     });
-    console.log(response);
+    // console.log(response);
     if (response.data.status === 'success') {
       showAlert('success', 'successfully updated user password');
       // window.setTimeout(() => {

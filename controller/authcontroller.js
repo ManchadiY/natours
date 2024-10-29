@@ -47,7 +47,7 @@ exports.singup = CatchAsync(async (req, res, next) => {
   });
 
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
+  // console.log(url);
 
   await new Email(newUser, url).sendWelcome();
 
@@ -81,7 +81,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
       //2)check if user still exists
       const freshUser = await User.findById(decoded.id);
-      console.log(freshUser);
+      // console.log(freshUser);
       if (!freshUser) {
         return next();
       }
@@ -113,7 +113,7 @@ exports.login = CatchAsync(async (req, res, next) => {
 
   //2)check if user exists && password is correct
   const user = await User.findOne({ email }).select('+password');
-  console.log(user);
+  // console.log(user);
 
   const confirm = await user.correctPassword(password, user.password);
 
@@ -274,7 +274,7 @@ exports.resetPassword = async (req, res, next) => {
 exports.updatePassword = CatchAsync(async (req, res, next) => {
   //1)get user from collection
   const user = await User.findById(req.user.id).select('+password');
-  console.log(user);
+  // console.log(user);
   //2)check if posted password is correct
   if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
     return next(new AppError('inavlid user password ', 400));

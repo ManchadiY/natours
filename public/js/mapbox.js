@@ -1,1 +1,1 @@
-console.log('hello from the client side');
+// console.log('hello from the client side');
